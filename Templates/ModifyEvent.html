@@ -1,0 +1,306 @@
+<!--<style>
+    .full button span {
+        background-color: limegreen;
+        border-radius: 32px;
+        color: black;
+    }
+    .partially button span {
+        background-color: orange;
+        border-radius: 32px;
+        color: black;
+    }
+</style>-->
+<link rel="stylesheet" href="CSS/createEventFormCSS.css">
+<script src="lib/js/CreateEventForm.js"></script>
+<br><br><br>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <br>
+        <div flash-message="1000" ></div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+<div class="container">
+    <div class="row">
+        <h1> Create Event</h1>
+        <div class="row">
+            <div class="container">
+                <div class="stepwizard">
+                    <div class="stepwizard-row setup-panel">
+                        <div class="stepwizard-step">
+                            <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+                            <p>Step 1</p>
+                        </div>
+                        <div class="stepwizard-step">
+                            <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                            <p>Step 2</p>
+                        </div>
+                        <div class="stepwizard-step">
+                            <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                            <p>Step 3</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Form Starts-->
+                <form class="form-horizontal">
+                    <div class="row setup-content" id="step-1">
+                        <legend>Step 1</legend>
+                        <div class="form-group">
+                            <label for="eventName" class="col-lg-2 control-label">Event Name</label>
+                            <div class="col-lg-6">
+                                <input type="text" ng-model="event.eventName" class="form-control" id="eventName" placeholder="Event Name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="col-lg-2 control-label">Description</label>
+                            <div class="col-lg-6">
+                                <textarea ng-model="event.description" class="form-control" rows="3" id="description"></textarea>
+                            </div>
+                        </div>
+                        <div ng-if="event!=undefined">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Timings</label>
+                                <div class="form-group">
+                                    <label class="col-lg-1 control-label">From</label>
+                                    <div class="col-lg-7">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="input-group">
+                                                    <input type="date" class="form-control" uib-datepicker-popup="{{format}}" ng-model="event.dateStart" ng-init="event.dateStart=dateFormat(event.dateStart)" is-open="popup1.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="col-lg-2 control-label">To</label>
+
+                                                <p class="input-group">
+                                                    <input type="date" class="form-control" uib-datepicker-popup="{{format}}" ng-model="event.dateEnd" ng-init="event.dateEnd=dateFormat(event.dateEnd)" is-open="popup2.opened" min-date="minDate2" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open2(dt)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!--<div class="col-lg-6">-->
+                                    <!--<div class="row">-->
+                                    <!--<div class="col-md-5">-->
+                                    <!--<input type="date" ng-model="event.dateStart" min="minDate" ng-init="event.dateStart=dateFormat(event.dateStart)" class="form-control" id="dateStart" placeholder="Date">-->
+                                    <!--</div>-->
+                                    <!--<div class="col-md-6">-->
+                                    <!--<label class="col-lg-1 control-label">To</label>-->
+                                    <!--<div class="col-lg-10">-->
+                                    <!--<input type="date" ng-model="event.dateStart" ng-init="event.dateStart=dateFormat(event.dateStart)" class="form-control" id="dateStart" placeholder="Date">-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="schedule" class="col-lg-2 control-label">Schedule</label>
+                            <div class="col-lg-8">
+                                <div ng-repeat="schedule in schedules">
+                                    <div class="row">
+                                        <!--{{dt}},{{dt1}}-->
+                                        <div class="col-md-4">
+                                            <input type="date" ng-model="schedule.date" ng-init="schedule.date=dateFormat(schedule.date)" class="form-control" id="date" placeholder="Date">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="time" ng-model="schedule.startTime" class="form-control" id="startTime" ng-init="schedule.startTime=timeFormat(schedule.startTime)" placeholder="From">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="time" ng-model="schedule.endTime" class="form-control" id="endTime" ng-init="schedule.endTime=timeFormat(schedule.endTime)" placeholder="To">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-primary" ng-show="$last" ng-click="addSchedule()"><div class="glyphicon glyphicon-plus"></div></button>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-primary" ng-show="$last" ng-click="removeSchedule()" ng-disabled="schedules.length<=1"><div class="glyphicon glyphicon-minus"></div></button>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-lg-2 control-label">Venue</label>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="addressLine1" class="col-lg-3 control-label">Adderss Line : </label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" ng-model="event.address.addressLine" id="addressLine1" placeholder="Address Line">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city" class="col-lg-3 control-label">City : </label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" ng-model="event.address.city" id="city" placeholder="City">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country" class="col-lg-3 control-label">Country : </label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" ng-model="event.address.country" id="country" placeholder="Country">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
+                    </div>
+
+                    <div class="row setup-content" id="step-2">
+                        <legend>Step 2</legend>
+                        <div class="form-group">
+                            <label for="category" class="col-lg-2 control-label">Category</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" ng-model="event.category.name" id="category" placeholder="Category">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-lg-2 control-label">Performers</label>
+                            <div class="col-lg-10">
+                                <div ng-repeat="performer in performersNew">
+                                    <div class="row">
+                                        <!--<div class="col-md-3"></div>-->
+                                        <div class="col-md-8">
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Performer {{performers.indexOf(performer) + 1}}</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="form-group">
+                                                        <label for="firstName" class="col-lg-3 control-label">First Name : </label>
+                                                        <div class="col-lg-6">
+                                                            <input type="text" class="form-control input-sm" ng-model="performer.firstName" id="firstName" placeholder="First Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="lastName" class="col-lg-3 control-label">Last Name : </label>
+                                                        <div class="col-lg-6">
+                                                            <input type="text" class="form-control input-sm" ng-model="performer.lastName" id="lastName" placeholder="Last Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="perfDescription" class="col-lg-3 control-label">Description : </label>
+                                                        <div class="col-lg-6">
+                                                            <input type="text" class="form-control input-sm" ng-model="performer.description" id="perfDescription" placeholder="Country">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="photo" class="col-lg-3 control-label">Photo : </label>
+                                                        <div class="col-lg-6">
+                                                            <input type="file" class="form-control input-sm" fileread="performer.photoUrl" id="photo" placeholder="Country">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <br><br><br><br><br><br><br><br><br><br>
+                                            <button type="submit" class="btn btn-primary" ng-show="$last" ng-click="addPerformer()"><div class="glyphicon glyphicon-plus"></div></button>
+                                            <button type="submit" class="btn btn-primary" ng-show="$last" ng-click="removePerformer()" ng-disabled="performers.length<=1"><div class="glyphicon glyphicon-minus"></div></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category" class="col-lg-2 control-label">Album</label>
+                            <div class="col-lg-10">
+                                <!--{{photos}}-->
+                                <div ng-repeat="photo in photosNew">
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="col-lg-8">
+                                                <input type="file" class="form-control" fileread="photo.photoUrl" id="photo" placeholder="Add Album">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" ng-show="$last" ng-click="addPhoto()"><div class="glyphicon glyphicon-plus"></div></button>
+                                            <button type="submit" class="btn btn-primary" ng-show="$last" ng-click="removePhoto()" ng-disabled="photos.length<=1"><div class="glyphicon glyphicon-minus"></div></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                    </div>
+
+
+                    <div class="row setup-content" id="step-3">
+                        <div class="form-group">
+                            <label for="ticketType" class="col-lg-2 control-label">Tickets</label>
+                            <div class="col-lg-6">
+                                <div ng-repeat="t in tickettype">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" ng-model="t.ticketType" id="ticketType" placeholder="Ticket Type">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" class="form-control" ng-model="t.maxCapacity" id="maxCapacity" placeholder="Capacity">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" class="form-control" ng-model="t.price" id="price" placeholder="Price">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-primary" ng-show="$last" ng-click="addTicketType()"><div class="glyphicon glyphicon-plus"></div></button>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-primary" ng-show="$last" ng-click="removeTicketType()" ng-disabled="tickettype.length<=1"><div class="glyphicon glyphicon-minus"></div></button>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact" class="col-lg-2 control-label">Contact</label>
+                            <div class="col-lg-6">
+                                <div ng-repeat="c in contact">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="col-lg-16">
+                                                <select class="form-control" ng-model="c.contactType">
+                                                    <option value="Mobile">Mobile</option>
+                                                    <option value="Email">Email</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" ng-model="c.value" id="value" placeholder="Contact">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-primary" ng-show="$last" ng-click="addContact()"><div class="glyphicon glyphicon-plus"></div></button>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-primary" ng-show="$last" ng-click="removeContact()" ng-disabled="contact.length<=1"><div class="glyphicon glyphicon-minus"></div></button>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg pull-right" type="submit" ng-click="modifyEvent()">Modify</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>

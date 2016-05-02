@@ -1,0 +1,7 @@
+{"user":
+  {"userId":1,"firstName":"sulochana","lastName":"hjdf","email":"vijaya.rao@capgmeini","phoneNo":"8712284121","photoUrl":"Hello","username":"vijaya"},
+  "eventvo":{"eventId":1,"eventName":"Music","categoryName":"Music","status":"Approved","avgRating":2.4,"addressLine":"sghfshdgf","city":"f","albumName":"AsdfNeww","dateStart":"2016-01-21","dateEnd":"2016-01-22","albumId":1,
+    "photoCollections":["vamsi","vamsinew"]},
+  "tickettype":{"ticketId":1,"ticketType":"new","maxCapacity":100,"price":100.0,"availableSeats":-10},
+  "noOfTickets":2,"bookingId":1,"userId":1,"eventId":1,"ticketId":1,"totalAmount":200.0,"transactionId":"1","bookingStatus":"'not booked'","contact":[{"contactId":1,"contactType":"you","value":"asd","eventid":1},
+  {"contactId":2,"contactType":"3ew3w","value":"asd","eventid":1}]}

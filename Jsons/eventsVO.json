@@ -1,0 +1,62 @@
+[
+  {
+    "eventId" : 1,
+    "eventName" : "Event Name 1",
+    "category" : "category1",
+    "address":{
+      "addressId": 1,
+      "addressLine": "adressline1",
+      "city": "CITY1",
+      "country": "country1"
+    },
+    "avgRating" : 4.5
+  },
+  {
+    "eventId" : 2,
+    "eventName" : "Event Name 2",
+    "category" : "category2",
+    "address":{
+      "addressId": 2,
+      "addressLine": "adressline2",
+      "city": "CITY2",
+      "country": "country2"
+    },
+    "avgRating" : 3.5
+  },
+  {
+    "eventId" : 3,
+    "eventName" : "Event Name 3",
+    "category" : "category3",
+    "address":{
+      "addressId": 3,
+      "addressLine": "adressline3",
+      "city": "CITY3",
+      "country": "country3"
+    },
+    "avgRating" : 2.5
+  },
+  {
+    "eventId" : 4,
+    "eventName" : "Event Name 4",
+    "category" : "category4",
+    "address":{
+      "addressId": 4,
+      "addressLine": "adressline4",
+      "city": "CITY4",
+      "country": "country4"
+    },
+    "avgRating" : 3.0
+  },
+  {
+    "eventId" : 5,
+    "eventName" : "Event Name 5",
+    "category" : "category5",
+    "address":{
+      "addressId": 5,
+      "addressLine": "adressline5",
+      "city": "CITY5",
+      "country": "country5"
+    },
+    "avgRating" : 4.5
+  }
+]

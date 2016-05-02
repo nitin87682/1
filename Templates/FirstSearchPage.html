@@ -1,0 +1,97 @@
+<!--<style>
+    body{
+        background-color: #ecf0f1;
+    }
+</style>-->
+<br><br><br><br>
+
+<div class="container">
+    <div ui-view>
+        <div ng-if="eventsVO==undefined">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <h2>Loading....</h2>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <div ng-if="eventsVO.length==0">
+            <br><br><br><br><br><br><br><br><br>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <h2>No Records Found!!</h2>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <br><br><br><br><br><br><br><br><br>
+        </div>
+        <div class="row" ng-if="eventsVO!=undefined && eventsVO.length>0">
+            <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <div class="well well-white">
+                    FilterBy:<input type="text" ng-model="filterSearchInput">
+                </div>
+                {{filterSearchInput}}
+            </div>
+            <div class="col-md-4">
+                <div class=" well well-white">
+                    SortBy:<select name="" id="" ng-model="sortType">
+                    <option value="">-select-</option>
+                    <option value="eventName">EventName</option>
+                    <option value="categoryName">Category</option>
+                    <option value="city">Venue</option>
+                    <option value="dateStart">Date</option>
+                </select>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
+                <div class="row well well-white" dir-paginate="eventVO in eventsVO | orderBy:sortType | filter:filterSearchInput | itemsPerPage: 4 track by eventVO.eventId">
+                    <a ui-sref="detailedEventDetails({myParam : eventVO.eventId})">
+                        <div class="col-md-8">
+                            <h3>{{eventVO.eventName}}</h3>
+                            <p><b>Category : </b>{{eventVO.categoryName}}</p>
+                            <p><b>Venue : </b>{{eventVO.addressLine}},{{eventVO.city}}</p>
+                            <p><b>From:{{eventVO.dateStart}} To:{{eventVO.dateEnd}}</b></p>
+                        </div>
+                        <div class="col-md-2">
+                            <img data-ng-src="{{eventVO.photoCollections[0]}}" alt="Photo" height="120" width="150">
+                        </div>
+                    </a>
+                </div>
+
+                <div align="center">
+                    <dir-pagination-controls
+                            max-size=10
+                            direction-links=true
+                            boundary-links=true
+                    <!--[on-page-change=""]
+                    [pagination-id=""]
+                    [template-url=""]
+                    [auto-hide=""]-->
+                    </dir-pagination-controls>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <!--<h3>Search By Date</h3><br><br>-->
+                <div style="display:inline-block; min-height:290px;">
+                    <uib-datepicker ng-model="dt" ng-change="invokeMethod(dt)" min-date="minDate" show-weeks="false" class="well well-sm" custom-class="getDayClass(date, mode)"></uib-datepicker>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+    </div>
+
+<!--forPagination-->
+

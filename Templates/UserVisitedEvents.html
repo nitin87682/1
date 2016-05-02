@@ -1,0 +1,47 @@
+<div ng-if="UserVisitedEvents==undefined">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8"><br><br><br><br>
+            <h2>Loading....</h2>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="row well well-white" dir-paginate="eventVO in UserVisitedEvents | orderBy:sortType | filter:filterSearchInput | itemsPerPage: 4">
+
+            <div class="col-md-8">
+                <a ui-sref="detailedEventDetails({myParam : eventVO.eventvo.eventId})">
+                    <h3>{{eventVO.eventvo.eventName}}</h3></a>
+                <p><b>Category : </b>{{eventVO.eventvo.categoryName}}</p>
+                <p><b>Venue : </b>{{eventVO.eventvo.addressLine}},{{eventVO.eventvo.city}}</p>
+                <p><b>From:{{eventVO.eventvo.dateStart}} To:{{eventVO.eventvo.dateEnd}}</b></p>
+                <p><b>Rating : {{eventVO.eventvo.avgRating}}</b></p>
+                <p><b>BookingId : {{eventVO.bookingId}}</b></p>
+                <p><b>TransactionId : {{eventVO.transactionId}}</b></p>
+                <p><b>TicketType : {{eventVO.tickettype.ticketType}}</b></p>
+                <p><b>No Of Tickets : {{eventVO.noOfTickets}}</b></p>
+            </div>
+            <!--<div class="col-md-2">
+                <img ng-src={{eventVO.photoCollections[0]}} alt="Photo" height="120" width="150">
+            </div>-->
+
+        </div>
+
+        <div align="center">
+            <dir-pagination-controls
+                    max-size=10
+                    direction-links=true
+                    boundary-links=true
+            <!--[on-page-change=""]
+            [pagination-id=""]
+            [template-url=""]
+            [auto-hide=""]-->
+            </dir-pagination-controls>
+        </div>
+
+    </div>
+    <div class="col-md-2"></div>
+</div>

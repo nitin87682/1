@@ -1,0 +1,26 @@
+<br><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2 well">
+            <div ng-show="isUser">
+                <a ui-sref="Dashboard.UserProfile" style="color: #5bc0de">My Profile</a><br>
+                <a ui-sref="Dashboard.ChangePassword" style="color: #5bc0de">Change Password</a><br>
+                <a ui-sref="Dashboard.UserCreatedEvents" style="color: #5bc0de">My Events</a><br/>
+                <a ui-sref="Dashboard.UserVisitedEvents" style="color: #5bc0de">My Bookings</a><br/>
+            </div>
+            <div ng-show="isAdmin">
+                <a ui-sref="Dashboard.AdminProfile" style="color: #5bc0de">My Profile</a><br>
+                <a ui-sref="Dashboard.ChangePassword" style="color: #5bc0de">Change Password</a><br>
+                <a ui-sref="Dashboard.PendingForApproval" style="color: #5bc0de">Pending For Approval</a><br/>
+                <a ui-sref="Dashboard.AllTransactionsVOforAdmin" style="color: #5bc0de">All Transactions</a><br/>
+            </div>
+        </div>
+
+        <div ui-view>
+            <h1>Welcome {{usersRole}}</h1>
+        </div>
+
+        <div class="col-md-1"></div>
+    </div>
+</div>

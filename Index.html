@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="EventApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <!--including bootstrap css and js files-->
+    <link rel="stylesheet" href="lib/css/flatly.css">
+    <link rel="stylesheet" href="lib/css/footer-distributed-with-address-and-phones.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="lib/css/loading-bar.css">
+
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-fixed-top navbar-default " ng-controller="LoginController">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <a class="navbar-brand" ui-sref="home"><img src="Images/logoWhite.gif" style="margin-top: -20px"></a>
+            <ul class="nav navbar-nav navbar-right">
+                <form class="navbar-form navbar-left" role="search" ng-controller="SuggestionController">
+                    <div class="form-group">
+                        <input type="text" ng-model="searchInput" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
+                    </div>
+                    <a ui-sref="search({myParam : searchInput})" class="btn btn-primary"><b>Search Events</b></a>
+                </form>
+                <li><a ui-sref="createEvent"><b>Create Event</b></a></li>
+                <li ng-show="!isLogged"><a ui-sref="login"><b>Login</b></a></li>
+                <style type="text/css">
+
+                    ul li ul.dropdown{
+
+                        display: none;
+                        position: absolute;
+                        z-index: 0;
+                        left: -10px;
+                    }
+                    ul li:hover ul.dropdown{
+                        display: block;	/* Display the dropdown */
+                    }
+
+                </style>
+                <li ng-show="isLogged">
+                    <a href="#" ng-click=logout()>Logout &#9662;</a>
+                    <ul class="dropdown">
+                        <a ui-sref="Dashboard"><strong>Profile</strong></a>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--<div class="container">-->
+<div ui-view>
+</div>
+<!--</div>-->
+
+<!--Footer-->
+<footer class="footer-distributed">
+    <div class="footer-left">
+        <h3>Company logo</span></h3>
+        <p class="footer-links">
+            <a href="#">Home</a>·
+            <a href="#">Blog</a>·
+            <a href="#">Pricing</a>·
+            <a href="#">About</a>·
+            <a href="#">Faq</a>·
+            <a href="#">Contact</a>
+        </p>
+        <h3>Capgemini &copy; 2016</h3>
+    </div>
+    <div class="footer-center">
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>Capgemini Talwade</span> Pune, Maharashtra</p>
+        </div>
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91 999-9999-999</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@capgemini.com</a></p>
+        </div>
+    </div>
+    <div class="footer-right">
+        <p class="footer-company-about">
+            <span>About the website</span>
+            You can find your favorite events and book tickets for those events. Enjoy....
+        </p>
+        <div class="footer-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+
+<!--including scripts-->
+<script src="lib/js/jquery-1.11.3.min.js"></script>
+<script src="lib/js/bootstrap.min.js"></script>
+<script src="lib/angular-1.4.8/angular.js"></script>
+<script src="lib/angular-1.4.8/angular-animate.js"></script>
+<script src="lib/angular-1.4.8/angular-resource.min.js"></script>
+<script src="lib/js/ui-router.js"></script>
+<script src="lib/js/angular-flash.js"></script>
+<script src="lib/js/ui-bootstrap-tpls-1.1.0.js"></script>
+<script src="JS/App/App.js"></script>
+<script src="JS/Services/SearchService.js"></script>
+<script src="JS/Controllers/SearchController.js"></script>
+<script src="JS/Controllers/SuggestionsController.js"></script>
+<script src="JS/Controllers/EventDetailController.js"></script>
+<script src="JS/Controllers/BookingPageController.js"></script>
+<script src="JS/Controllers/LoginController.js"></script>
+<script src="JS/Controllers/DashboardController.js"></script>
+<script src="JS/Controllers/InvoiceController.js"></script>
+<script src="JS/Controllers/CreateEventController.js"></script>
+<script src="JS/Controllers/ModifyController.js"></script>
+<script src="lib/js/bootbox.min.js"></script>
+<script src="lib/angular-1.4.8/angular-route.js"></script>
+<script src="lib/js/dirPagination.js"></script>
+<script src="lib/js/loading-bar.js"></script>
+</body>
+</html>

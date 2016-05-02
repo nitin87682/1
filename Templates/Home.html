@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="CSS/IndexCSS.css">
+
+<!--Jumbotron-->
+
+<div class="jumbotron" align="center" style="background-image: url('Images/main2.jpg')">
+    <br/><br/><br/>
+    <h1><div id="type"></div></h1>
+    <p style="color:white">You can find Crazy events and you can book tickets.</p>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="input-group custom-search-form">
+            <input type="text" ng-model="searchInput" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
+              <span class="input-group-btn">
+              <a  class="btn btn-primary"  ui-sref="search({myParam : searchInput})">
+                  <span class="glyphicon glyphicon-search"></span>
+              </a>
+             </span>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+<div class="container">
+<div class="row">
+
+    <h2 align="center" ng-hide="popularEvents4VO==undefined"><b>Popular Events</b></h2>
+    <hr/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="col-md-3" ng-repeat = "popularEvent in popularEvents4VO">
+                <div class="well well-white">
+                    <a ui-sref="detailedEventDetails({myParam : popularEvent.eventId})">
+                    <div class="thumbnail">
+                        <img alt="image" src="{{popularEvent.photoCollections[0]}}">
+                    </div>
+                    <div class="caption" align="center">
+                        <h4><b>{{popularEvent.eventName}}</b></h4>
+                        <p><b>Venue : </b> {{popularEvent.addressLine}},{{popularEvent.city}}</p>
+                        <p><b>Category :</b> {{popularEvent.categoryName}}</p>
+                    </div>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-md-1"></div>-->
+        <div class="col-md-1"></div>
+    </div>
+</div>
+<!--<div class="col-md-1"></div>-->
+
+
+
+<div class="row">
+
+    <h2 align="center" ng-hide="upcomingEvents4VO==undefined"><b>Upcoming Events</b></h2>
+    <hr/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="col-md-3" ng-repeat = "UcomingEvent in upcomingEvents4VO">
+                <div class="well well-white">
+                    <a ui-sref="detailedEventDetails({myParam : UcomingEvent.eventId})">
+                    <div class="thumbnail">
+                        <img alt="image" src="{{UcomingEvent.photoCollections[0]}}">
+                    </div>
+                    <div class="caption" align="center">
+                        <h4><b>{{UcomingEvent.eventName}}</b></h4>
+                        <p><b>Venue : </b> {{UcomingEvent.addressLine}},{{UcomingEvent.city}}</p>
+                        <p><b>Category :</b> {{UcomingEvent.categoryName}}</p>
+                    </div>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-md-1"></div>-->
+        <div class="col-md-1"></div>
+    </div>
+</div>
+    </div>
+<br/>
+<script src="lib/js/HomeScript.js"></script>
+
+
+
+
+
+
+
+
+

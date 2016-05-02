@@ -1,0 +1,81 @@
+[{
+  "commentId" : 1,
+  "user" : {
+    "userId" : 1,
+    "firstName" : "sulochana",
+    "lastName" : "hjdf",
+    "email" : "vijaya.rao@capgmeini",
+    "phoneNo" : "8712284121",
+    "photoUrl" : "Hello",
+    "username" : "vijaya"
+  },
+  "eventId" : 1,
+  "commentText" : "asd",
+  "lastUpdate" : 1453696915000,
+  "replies" : [ {
+    "replyId" : 1,
+    "user" : {
+      "userId" : 2,
+      "firstName" : "sulochana",
+      "lastName" : "hjdf",
+      "email" : "vijaya.rao@capgmeini",
+      "phoneNo" : "8712284121",
+      "photoUrl" : "Hello",
+      "username" : "vijaya"
+    },
+    "delete_date" : null,
+    "commentId" : 1,
+    "replyText" : "first replies",
+    "lastUpdate" : 1453696034000,
+    "last_update" : 1453696034000
+  }, {
+    "replyId" : 2,
+    "user" : {
+      "userId" : 2,
+      "firstName" : "sulochana",
+      "lastName" : "hjdf",
+      "email" : "vijaya.rao@capgmeini",
+      "phoneNo" : "8712284121",
+      "photoUrl" : "Hello",
+      "username" : "vijaya"
+    },
+    "delete_date" : null,
+    "commentId" : 1,
+    "replyText" : "FSDFSDGHBFGHF",
+    "lastUpdate" : 1453696034000,
+    "last_update" : 1453696034000
+  } ],
+  "delete_date" : null
+}, {
+  "commentId" : 2,
+  "user" : {
+    "userId" : 1,
+    "firstName" : "sulochana",
+    "lastName" : "hjdf",
+    "email" : "vijaya.rao@capgmeini",
+    "phoneNo" : "8712284121",
+    "photoUrl" : "Hello",
+    "username" : "vijaya"
+  },
+  "eventId" : 1,
+  "commentText" : "ghhgfh",
+  "lastUpdate" : 1453696068000,
+  "replies" : [ ],
+  "delete_date" : null
+}, {
+  "commentId" : 4,
+  "user" : {
+    "userId" : 1,
+    "firstName" : "sulochana",
+    "lastName" : "hjdf",
+    "email" : "vijaya.rao@capgmeini",
+    "phoneNo" : "8712284121",
+    "photoUrl" : "Hello",
+    "username" : "vijaya"
+  },
+  "eventId" : 1,
+  "commentText" : "gf",
+  "lastUpdate" : 1453696068000,
+  "replies" : [ ],
+  "delete_date" : null
+} ]

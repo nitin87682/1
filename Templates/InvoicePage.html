@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="CSS/invoice.css">
+<br><br><br><br>
+
+
+
+
+<div class="container" ng-hide="invoiceData==undefined">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="invoice-title">
+                <h2>Invoice</h2>
+            </div>
+            <small>Capgemini Pvt. Ltd</small>
+            <hr>
+            <div class="row">
+                <div class="col-xs-6">
+                    <address>
+                        <strong>User Details:</strong><br>
+                        {{invoiceData.user.firstName}} &nbsp; {{invoiceData.user.lastName}}<br>
+                    </address>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <address>
+                        <strong>Event Details:</strong><br>
+                        {{invoiceData.eventvo.eventName}}<br>
+                        {{invoiceData.eventvo.addressLine}},{{invoiceData.eventvo.city}}
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Order summary</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                            <tr>
+                                <td><strong>Number of Tickets</strong></td>
+                                <td class="text-center"><strong>Total Amount</strong></td>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                            <tr>
+                                <td>{{invoiceData.noOfTickets}}</td>
+                                <td class="text-center">{{invoiceData.totalAmount}}</td>
+
+                            </tr>
+                            <tr>
+                                <td class="thick-line"></td>
+                                <td class="thick-line"></td>
+
+                            </tr>
+                            <tr>
+                                <td class="no-line"></td>
+                                <td class="no-line"></td>
+
+                            </tr>
+                            <tr>
+                                <td class="no-line"></td>
+                                <td class="no-line"></td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+        </div>
+    <div class="row">
+        <div class="col=md-1"></div>
+        <div class="col-md-11">
+            <a target="_self" href="http://din51002665:8181/EventManagement/gpdf?bookingId={{invoiceData.bookingId}}" class="btn btn-primary" download="foo.pdf">Download As PDF</a>
+        </div>
+    </div>
+    </div>
+
