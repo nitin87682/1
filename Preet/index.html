@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="scotchApp">
+
+<head>
+  <!-- SCROLLS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+
+    <!--Only for special font called awesome font. Not Mandatory. It will display visual glymph next to Home, about and Contact-->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="dist/js/bootstrap-submenu.min.js" defer></script>
+
+
+
+
+
+  <!-- SPELLS -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+  <script src="script.js"></script>
+
+
+
+
+
+</head>
+
+<!-- define angular controller -->
+<body ng-controller="mainController"style="background: url(Superman.jpg)" >
+
+  <nav class="navbar navbar-inverse">
+    <div class="container"  >
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html"><b><font style="color: chartreuse"> Film Management System</font> </b></a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+
+           <li>
+            <div class="dropdown">
+               &nbsp;     <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Actor <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+             <li><a href="#AddActor">Add</a></li>
+             <li><a href="#UpdateActor">Update</a></li>
+             <li><a href="#RemoveActor">Remove</a></li>
+          </ul>
+
+            </div>
+
+          </li>
+        <li><div class="dropdown">
+            &nbsp;   <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Film <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+             <li><a href="#AddMovie">Add</a></li>
+             <li><a href="#UpdateFilm">Update</a></li>
+             <li><a href="#RemoveFilm">Remove</a></li>
+          </ul>
+            </div></li>
+
+        <li>
+            <div class="dropdown">
+                &nbsp;   <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Search Actor <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+             <li><a href="#SearchActor">ByName</a></li>
+          </ul>
+            </div>
+     </li>
+          <li>
+            <div class="dropdown">
+           &nbsp; <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Search Film <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+             <li><a href="#searchFilmByTitle">ByTitle</a></li>
+              <li><a href="#searchFilmByRating">ByRating</a></li>
+              <li><a href="#searchFilmByReleaseYear">ByReleaseYear</a></li>
+              <li><a href="#searchFilmByCategory">ByCategory</a></li>
+              <li><a href="#searchFilmByLanguage">ByLanguage</a></li>
+              <li><a href="#searchFilmByActor">ByActor</a></li>
+          </ul>
+            </div>
+     </li>
+
+
+      </ul>
+    </div>
+
+
+
+  </nav>
+
+
+  <div >
+
+    <!-- angular templating -->
+		<!-- this is where content will be injected -->
+   <div ng-view  ></div>
+
+  </div>
+
+
+
+</body>
+
+</html>
